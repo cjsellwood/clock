@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Clock</title>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                <h1 id="time"></h1>
+            </div>
+            <div class="frame">
+                <div class="seconds">
+                    <div class="visible-seconds">
+
+                    </div>
+                    <div class="center-seconds">
+
+                    </div>
+                    <div class="invisible-seconds">
+
+                    </div>
+                    
+                </div>
+                <div class="minutes">
+                    <div class="visible-minutes">
+
+                    </div>
+                    <div class="center-minutes">
+
+                    </div>
+                    <div class="invisible-minutes">
+
+                    </div>
+                    
+                </div>
+                <div class="hours">
+                    <div class="visible-hours">
+
+                    </div>
+                    <div class="center-hours">
+
+                    </div>
+                    <div class="invisible-hours">
+
+                    </div>
+                    
+                </div>
+            </div class>
+        </div>
+
+        <script>
+
+            // get first time to avoid pop in time
+            function getInitialTime() {
+                let d = new Date();
+                let time = document.getElementById("time");
+                let h = d.getHours().toString().padStart(2, '0');
+                let m = d.getMinutes().toString().padStart(2, '0');
+                let s = d.getSeconds().toString().padStart(2, '0')
+                time.textContent = `${h} : ${m} : ${s}`
+            }
+
+            // gets and displays time, updates every second
+            function getTime() {
+                setInterval(() => {
+                // Display digital time
+                let d = new Date();
+                let time = document.getElementById("time");
+                let h = d.getHours().toString().padStart(2, '0');
+                let m = d.getMinutes().toString().padStart(2, '0');
+                let s = d.getSeconds().toString().padStart(2, '0')
+                time.textContent = `${h} : ${m} : ${s}`
+
+                // Move seconds hand
+                let second = document.getElementsByClassName("seconds")[0];
+                console.log(second);
+                second.style.transform = `rotate(${d.getSeconds() * 6}deg)`;
+
+                // Move minutes hand
+                let minute = document.getElementsByClassName("minutes")[0];
+                console.log(minute);
+                minute.style.transform = `rotate(${d.getMinutes() * 6}deg)`;
+
+                // Move hours hand
+                let hour = document.getElementsByClassName("hours")[0];
+                console.log(hour);
+                hour.style.transform = `rotate(${d.getHours() % 12 * 30}deg)`;
+
+            }, 1000);
+            }
+
+            getInitialTime();
+            getTime();
+        </script>
+    </body>
+</html>

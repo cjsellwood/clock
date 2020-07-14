@@ -1,0 +1,138 @@
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center;
+    height: 800px;
+}
+
+#time {
+    text-align: center;
+    height: 100px;
+    vertical-align: middle;
+    line-height: 100px;
+    font-size: 60px;
+    color: rgb(35, 117, 224);
+    font-family: Helvetica;
+    font-weight: 300;
+}
+
+.frame {
+    border: 3px solid black;
+    width: 520px;
+    height: 520px;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    border-radius: 100%;
+}
+
+.seconds {
+    width: 10px;
+    height: 500px;
+    /* animation: 60s rotateSeconds linear infinite; */
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* @keyframes rotateSeconds {
+    0% {transform: rotate(0deg);}
+    100% { transform: rotate(359deg);}
+} */
+
+.visible-seconds {
+    background-color: black;
+    border: 2px solid black;
+    height: 45%;
+}
+
+.center-seconds {
+    background-color: chartreuse;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+
+.invisible-seconds {
+    background-color: white;
+    border: 1px solid red;
+    height: 45%;
+}
+
+
+
+.minutes {
+    border: 2px solid blue;
+    width: 10px;
+    height: 500px;
+    /* animation: 60s rotateSeconds linear infinite; */
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
+
+.visible-minutes {
+    background-color: black;
+    border: 2px solid black;
+    height: 45%;
+
+}
+
+.center-minutes {
+    background-color: rgb(255, 211, 16);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+
+.invisible-minutes {
+    background-color: rgb(238, 158, 158);
+    border: 1px solid rgb(109, 255, 24);
+    height: 45%;
+}
+
+.hours {
+    border: 2px solid blue;
+    width: 10px;
+    height: 500px;
+    /* animation: 60s rotateSeconds linear infinite; */
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
+
+.visible-hours {
+    background-color: rgb(255, 6, 222);
+    border: 2px solid rgb(221, 103, 103);
+    height: 45%;
+}
+
+.center-hours {
+    background-color: rgb(42, 233, 207);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+}
+
+.invisible-hours {
+    background-color: rgb(24, 0, 43);
+    border: 1px solid rgb(255, 239, 8);
+    height: 45%;
+}
+
+
+

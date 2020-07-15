@@ -10,7 +10,7 @@
             <div>
                 <h1 id="time"></h1>
             </div>
-            <div class="frame">
+            <div class="frame" id="frame">
                 <div class="seconds">
                     <div class="visible-seconds">
                         
@@ -21,7 +21,6 @@
                     <div class="invisible-seconds">
 
                     </div>
-                    
                 </div>
                 <div class="minutes">
                     <div class="visible-minutes">
@@ -32,8 +31,7 @@
                     </div>
                     <div class="invisible-minutes">
 
-                    </div>
-                    
+                    </div>  
                 </div>
                 <div class="hours">
                     <div class="visible-hours">
@@ -45,71 +43,17 @@
                     <div class="invisible-hours">
 
                     </div>
-                    
                 </div>
             </div>
-            <a class="rainbow-link" href="rainbow.html">
-                <div>
-                    Rainbow Mode
-                </div>
-            </a>
-            <a class="rainbow-link" href="rainbow copy.html">
-                <div>
-                    Rainbow Mode copy
-                </div>
-            </a>
+            <div class="bottom-row">
+                <button id="toggle-number">Toggle Numbers</button>
+                <a class="rainbow-link" href="rainbow.html">
+                    <div>
+                        Rainbow Mode
+                    </div>
+                </a>
             </div>
         </div>
-
-        <script>
-            function changeTime() {
-                // Display digital time
-                let d = new Date();
-                let time = document.getElementById("time");
-                let h = d.getHours().toString().padStart(2, '0');
-                let m = d.getMinutes().toString().padStart(2, '0');
-                let s = d.getSeconds().toString().padStart(2, '0')
-                time.textContent = `${h} : ${m} : ${s}`
-
-                // Move seconds hand
-                let second = document.getElementsByClassName("seconds")[0];
-                second.style.transform = `rotate(${(d.getSeconds()) * 6}deg)`;
-
-                // Move minutes hand
-                let minute = document.getElementsByClassName("minutes")[0];
-                minute.style.transform = `rotate(${(d.getMinutes() + d.getSeconds() / 60) * 6}deg)`;
-
-                // Move hours hand
-                let hour = document.getElementsByClassName("hours")[0];
-                hour.style.transform = `rotate(${(d.getHours() + d.getMinutes() / 60) % 12 * 30}deg)`;
-                
-
-                let root = document.documentElement;
-
-                
-            }
-
-            function changeBackground() {
-
-            }
-
-            // get first time to avoid pop in time
-            function getInitialTime() {
-                changeTime();
-            }
-
-            // gets and displays time, updates every second
-            function getTime() {
-                setInterval(() => {
-                    changeTime();
-            }, speed);
-            }
-
-            // set interval time, lower smoother
-            let speed = 1000;
-
-            getInitialTime();
-            getTime();
-        </script>
+        <script src="scripts.js" type="text/javascript"></script>
     </body>
 </html>

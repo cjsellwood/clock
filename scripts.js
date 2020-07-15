@@ -9,7 +9,11 @@ function changeTime() {
 
     // Move seconds hand
     let second = document.getElementsByClassName("seconds")[0];
-    second.style.transform = `rotate(${(d.getSeconds()) * 6}deg)`;
+    if (smooth === true) {
+        second.style.transform = `rotate(${((d.getSeconds()) + d.getMilliseconds() / 1000) * 6}deg)`;
+    } else {
+        second.style.transform = `rotate(${((d.getSeconds())) * 6}deg)`;
+    }
 
     // Move minutes hand
     let minute = document.getElementsByClassName("minutes")[0];
@@ -18,8 +22,6 @@ function changeTime() {
     // Move hours hand
     let hour = document.getElementsByClassName("hours")[0];
     hour.style.transform = `rotate(${(d.getHours() + d.getMinutes() / 60) % 12 * 30}deg)`;
-
-    let root = document.documentElement;
 }
 
 // get first time to avoid pop in time
@@ -28,11 +30,36 @@ function getInitialTime() {
 }
 
 // gets and displays time, updates every second
-function getTime() {
-    setInterval(() => {
+function getTime(speed) {
+    intervalId = setInterval(() => {
         changeTime();
-}, speed);
+    }, speed);
 }
+
+
+// Switch between smooth second hand and ticking hand
+function toggleSmooth() {
+    if (smooth === false) {
+        // increase update speed and restart interval function
+        speed = 10;
+        smooth = true;
+        clearInterval(intervalId);
+        getTime(speed);
+        console.log(speed)       
+    } else {
+        // decrease update speed and restart interval function
+        speed = 1000;
+        smooth = false;
+        clearInterval(intervalId);
+        getTime(speed);
+        console.log(speed)
+    }
+}
+
+// Set interval time, lower smoother
+let intervalId;
+let speed = 1000;
+
 
 // Add numbers to clock
 function toggleNumbers() {
@@ -60,8 +87,11 @@ function toggleNumbers() {
     }
 }
 
-// Set interval time, lower smoother
-let speed = 1000;
+// Go to rainbow clock
+function visitLink(link) {
+    window.location = link;
+}
+
 
 // Toggle numbers with button and function
 let toggleNumberButton = document.getElementById("toggle-number");
@@ -69,6 +99,15 @@ toggleNumberButton.addEventListener('click', () => {
     toggleNumbers();
 })
 
-let numbers = true;
+// Toggle smooth second hand with button and function
+let toggleSmoothButton = document.getElementById("toggle-smooth");
+toggleSmoothButton.addEventListener('click', () => {
+    toggleSmooth();
+})
+
+let smooth = false;
+let numbers = false;
+
+toggleNumbers()
 getInitialTime();
-getTime();
+getTime(speed);

@@ -22,8 +22,6 @@ function changeTime() {
     // Change background gradient
     let all = document.getElementById("all");
     let hue = (d.getSeconds() + d.getMilliseconds() / 1000) * 6;
-    // all.style.backgroundColor = `hsl(${hue.toString()}, 100%, 50%)`;
-    let inverseHue = (hue + 180) % 360;
     let root = document.documentElement;
     root.style.setProperty('--color1', `hsl(${hue}, 100%, 50%)`);
     root.style.setProperty('--color2', `hsl(${(hue) - 45}, 100%, 50%)`);
@@ -34,10 +32,6 @@ function changeTime() {
     root.style.setProperty('--color7', `hsl(${(hue) - 270}, 100%, 50%)`);
     root.style.setProperty('--color8', `hsl(${(hue) - 315}, 100%, 50%)`);
     
-}
-
-function changeBackground() {
-
 }
 
 // get first time to avoid pop in time

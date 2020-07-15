@@ -4,7 +4,7 @@
 }
 
 #all {
-    height: 990px;
+    height: min(100vw, 100vh);
     margin: 0;
 }
 
@@ -13,56 +13,49 @@
     grid-template-columns: auto;
     justify-content: center;
     align-content: center;
-    height: 800px;
-    
 }
 
 #time {
     text-align: center;
-    height: 100px;
+    height: min(10vw, 10vh);
     vertical-align: middle;
-    line-height: 100px;
-    font-size: 60px;
-    color: rgb(35, 117, 224);
+    line-height: min(10vw, 10vh);
+    font-size: min(7vw, 7vh);
+    color: rgb(0, 0, 0);
     font-family: Helvetica;
     font-weight: 300;
-    text-shadow: 2px 2px 2px rgb(255, 255, 255),
-     2px -2px 2px rgb(255, 255, 255),
-     -2px 2px 2px rgb(255, 255, 255),
-     -2px -2px 2px rgb(255, 255, 255);
 }
 
 .frame {
-    width: 520px;
-    height: 520px;
+    width: min(65vw, 65vh);
+    height: min(65vw, 65vh);
     justify-content: center;
     align-items: center;
     display: grid;
     border-radius: 100%;
     position: relative;
-
-    box-shadow: 5px 5px 10px inset rgb(0, 0, 0),
-    -5px -5px 10px inset rgb(0, 0, 0),
-    -5px 5px 10px inset rgb(0, 0, 0),
-    5px -5px 10px inset rgb(0, 0, 0),
-    5px 5px 10px rgb(0, 0, 0),
-    -5px -5px 10px rgb(0, 0, 0),
-    -5px 5px 10px rgb(0, 0, 0),
-    5px -5px 10px rgb(0, 0, 0);;
+    --f: min(0.25vw, 0.25vh);
+    --n: calc(-1 * var(--f));
+    box-shadow: var(--f) var(--f) inset rgb(0, 0, 0),
+    var(--n) var(--n) inset rgb(0, 0, 0),
+    var(--n) var(--f) inset rgb(0, 0, 0),
+    var(--f) var(--n) inset rgb(0, 0, 0),
+    var(--f) var(--f) rgb(0, 0, 0),
+    var(--n) var(--n) rgb(0, 0, 0),
+    var(--n) var(--f) rgb(0, 0, 0),
+    var(--f) var(--n) rgb(0, 0, 0);
 }
 
 .seconds {
     width: 10px;
-    height: 500px;
+    height: min(60vw, 60vh);
     /* animation: 1s rotateSeconds linear infinite; */
-    border-radius: 5%;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 260px;
-
+    left: min(32vw, 32vh);
 }
 
 /* @keyframes rotateSeconds {
@@ -72,63 +65,64 @@
 
 .visible-seconds {
     background-color: rgb(223, 116, 116);
-    width: 5px;
-    height: 45%;
+    width: min(0.7vw, 0.7vh);
+    min-width: 5px;
+    height: 49.95%;
+    border-radius: 10px;
 }
 
 .center-seconds {
     background-color: rgb(0, 0, 0);
-    height: 1px;
+    height: 0.1%;
     width: 1px;
     border-radius: 100%;
+    visibility: hidden;
 }
 
 .invisible-seconds {
     background-color: rgb(235, 32, 32);
     width: 5px;
-    height: 45%;
+    height: 49.95%;
     visibility: hidden;
 }
 
-
-
 .minutes {
     width: 10px;
-    height: 400px;
-    /* animation: 60s rotateSeconds linear infinite; */
-    border-radius: 5%;
+    height: min(45vw, 45vh);
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 260px;
+    left: min(32vw, 32vh)
 }
 
 .visible-minutes {
     background-color: rgb(98, 224, 119);
-    width: 5px;
-    height: 45%;
-
+    width: min(0.7vw, 0.7vh);
+    min-width: 5px;
+    height: 49.95%;
+    border-radius: 10px;
 }
 
 .center-minutes {
     background-color: rgb(255, 211, 16);
-    height: 1px;
+    height: 0.1%;
     width: 1px;
     border-radius: 100%;
+    visibility: hidden;
 }
 
 .invisible-minutes {
     background-color: rgb(61, 88, 243);
-    height: 45%;
+    height: 49.95%;
     width: 5px;
     visibility: hidden;
 }
 
 .hours {
     width: 10px;
-    height: 300px;
+    height: min(30vw, 30vh);
     /* animation: 60s rotateSeconds linear infinite; */
     border-radius: 5%;
     justify-content: center;
@@ -136,26 +130,29 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 260px;
+    left: min(32vw, 32vh)
 }
 
 .visible-hours {
     background-color: rgb(111, 124, 238);
-    width: 5px;
-    height: 45%;
+    width: min(0.7vw, 0.7vh);
+    min-width: 5px;
+    height: 49.95%;
+    border-radius: 10px;
 }
 
 .center-hours {
     background-color: rgb(0, 0, 0);
-    height: 1px;
+    height: 0.1%;
     width: 1px;
     border-radius: 100%;
+    visibility: hidden;
 }
 
 .invisible-hours {
     background-color: rgb(233, 85, 27);
     width: 5px;
-    height: 45%;
+    height: 49.95%;
     visibility: hidden;
 }
 

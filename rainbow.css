@@ -1,11 +1,25 @@
 :root {
-    --angle1: 0;
-    --angle2: 0;
+    --color1: blue;
+    --color2: red;
+    --color3: green;
+    --color4: yellow;
+    --color5: orange;
+    --color6: purple;
+    --color7: pink;
+    --color8: turquoise;
 }
 
 #all {
-    height: 990px;
+    height: 100vh;
     margin: 0;
+    background-image: radial-gradient(circle, var(--color1),
+     var(--color2),
+     var(--color3),
+     var(--color4),
+     var(--color5),
+     var(--color6),
+     var(--color7),
+     var(--color8));
 }
 
 .container {
@@ -13,7 +27,7 @@
     grid-template-columns: auto;
     justify-content: center;
     align-content: center;
-    height: 800px;
+    height: 93vh;
     
 }
 
@@ -40,21 +54,20 @@
     display: grid;
     border-radius: 100%;
     position: relative;
-
-    box-shadow: 5px 5px 10px inset rgb(0, 0, 0),
-    -5px -5px 10px inset rgb(0, 0, 0),
-    -5px 5px 10px inset rgb(0, 0, 0),
-    5px -5px 10px inset rgb(0, 0, 0),
-    5px 5px 10px rgb(0, 0, 0),
-    -5px -5px 10px rgb(0, 0, 0),
-    -5px 5px 10px rgb(0, 0, 0),
-    5px -5px 10px rgb(0, 0, 0);;
+    box-shadow: 5px 5px 10px inset white,
+    -5px -5px 10px inset white,
+    -5px 5px 10px inset white,
+    5px -5px 10px inset white,
+    5px 5px 10px white,
+    -5px -5px 10px white,
+    -5px 5px 10px white,
+    5px -5px 10px white;;
 }
 
 .seconds {
     width: 10px;
     height: 500px;
-    /* animation: 1s rotateSeconds linear infinite; */
+    /* animation: 60s rotateSeconds linear infinite; */
     border-radius: 5%;
     justify-content: center;
     align-items: center;
@@ -81,6 +94,7 @@
     height: 1px;
     width: 1px;
     border-radius: 100%;
+    visibility: hidden;
 }
 
 .invisible-seconds {
@@ -117,6 +131,7 @@
     height: 1px;
     width: 1px;
     border-radius: 100%;
+    visibility: hidden;
 }
 
 .invisible-minutes {
@@ -150,6 +165,7 @@
     height: 1px;
     width: 1px;
     border-radius: 100%;
+    visibility: hidden;
 }
 
 .invisible-hours {
@@ -159,7 +175,7 @@
     visibility: hidden;
 }
 
-.rainbow-link {
+.regular-link {
     text-align: center;
     height: 50px;
     line-height: 50px;
@@ -168,13 +184,18 @@
     margin-left: auto;
     width: 150px;
     justify-content: center;
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    background-color: rgb(216, 215, 215);
     font-family: Helvetica;
 }
 
-.rainbow-link:hover {
-    outline: 2px solid rgb(109, 109, 109);
+.regular-link:hover {
+    box-shadow: 2px 2px 5px inset white,
+    -2px -2px 5px inset white,
+    -2px 2px 5px inset white,
+    2px -2px 5px inset white,
+    2px 2px 5px white,
+    -2px -2px 5px white,
+    -2px 2px 5px white,
+    2px -2px 5px white;;
 }
-

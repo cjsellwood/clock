@@ -3,8 +3,9 @@
     <head>
         <title>Clock</title>
         <link rel="stylesheet" href="styles.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body id="all">
         <div class="container">
             <div>
                 <h1 id="time"></h1>
@@ -12,7 +13,7 @@
             <div class="frame">
                 <div class="seconds">
                     <div class="visible-seconds">
-
+                        
                     </div>
                     <div class="center-seconds">
 
@@ -24,7 +25,7 @@
                 </div>
                 <div class="minutes">
                     <div class="visible-minutes">
-
+                        
                     </div>
                     <div class="center-minutes">
 
@@ -36,7 +37,7 @@
                 </div>
                 <div class="hours">
                     <div class="visible-hours">
-
+                        
                     </div>
                     <div class="center-hours">
 
@@ -46,24 +47,17 @@
                     </div>
                     
                 </div>
-            </div class>
+            </div>
+            <a class="rainbow-link" href="rainbow.html">
+                <div>
+                    Rainbow Mode
+                </div>
+            </a>
+            </div>
         </div>
 
         <script>
-
-            // get first time to avoid pop in time
-            function getInitialTime() {
-                let d = new Date();
-                let time = document.getElementById("time");
-                let h = d.getHours().toString().padStart(2, '0');
-                let m = d.getMinutes().toString().padStart(2, '0');
-                let s = d.getSeconds().toString().padStart(2, '0')
-                time.textContent = `${h} : ${m} : ${s}`
-            }
-
-            // gets and displays time, updates every second
-            function getTime() {
-                setInterval(() => {
+            function changeTime() {
                 // Display digital time
                 let d = new Date();
                 let time = document.getElementById("time");
@@ -74,21 +68,40 @@
 
                 // Move seconds hand
                 let second = document.getElementsByClassName("seconds")[0];
-                console.log(second);
-                second.style.transform = `rotate(${d.getSeconds() * 6}deg)`;
+                second.style.transform = `rotate(${(d.getSeconds()) * 6}deg)`;
 
                 // Move minutes hand
                 let minute = document.getElementsByClassName("minutes")[0];
-                console.log(minute);
-                minute.style.transform = `rotate(${d.getMinutes() * 6}deg)`;
+                minute.style.transform = `rotate(${(d.getMinutes() + d.getSeconds() / 60) * 6}deg)`;
 
                 // Move hours hand
                 let hour = document.getElementsByClassName("hours")[0];
-                console.log(hour);
-                hour.style.transform = `rotate(${d.getHours() % 12 * 30}deg)`;
+                hour.style.transform = `rotate(${(d.getHours() + d.getMinutes() / 60) % 12 * 30}deg)`;
+                
 
-            }, 1000);
+                let root = document.documentElement;
+
+                
             }
+
+            function changeBackground() {
+
+            }
+
+            // get first time to avoid pop in time
+            function getInitialTime() {
+                changeTime();
+            }
+
+            // gets and displays time, updates every second
+            function getTime() {
+                setInterval(() => {
+                    changeTime();
+            }, speed);
+            }
+
+            // set interval time, lower smoother
+            let speed = 1000;
 
             getInitialTime();
             getTime();

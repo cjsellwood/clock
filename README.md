@@ -1,1 +1,1 @@
-A clock
+A responsive clock with multiple settings
